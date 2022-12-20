@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Importere Sølyedigram-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Spørreundersøkelse</title>
+</head>
+<body>
+  <div class="container">
+    <div class="questionDiv">
+      <!--Jeg har en variabel som endrer seg til hva du trykker på-->
+      <p>Himmelen er grønn</p>
+      <input type="radio" name="himmel" id="himmelJa" value="1" onclick="himmel = document.querySelector('#himmelJa');console.log(himmel.value)">
+      <label for="himmelJa">enig</label>
+      <input type="radio" name="himmel" id="himmelNei" value="0" onclick="himmel = document.querySelector('#himmelNei');console.log(himmel.value)">
+      <label for="himmelNei">uenig</label>
+
+      <br>
+
+      <p>Jorden er flat</p>
+      <input type="radio" name="flat" id="flatJa" value="1" onclick="flat = document.querySelector('#flatJa');console.log(flat.value)">
+      <label for="flatJa">enig</label>
+      <input type="radio" name="flat" id="flatNei" value="0" onclick="flat = document.querySelector('#flatNei');console.log(flat.value)">
+      <label for="flatNei">uenig</label>
+
+      <br>
+
+      <p>Venus er firkantet</p>
+      <input type="radio" name="venus" id="venusJa" value="1" onclick="venus = document.querySelector('#venusJa');console.log(venus.value)">
+      <label for="venusJa">enig</label>
+      <input type="radio" name="venus" id="venusNei" value="0" onclick="venus = document.querySelector('#venusNei');console.log(venus.value)">
+      <label for="venusNei">uenig</label>
+
+      <br>
+
+      <p>Saturn er rund</p>
+      <input type="radio" name="saturn" id="saturnJa" value="1" onclick="saturn = document.querySelector('#saturnJa');console.log(saturn.value)">
+      <label for="saturnJa">enig</label>
+      <input type="radio" name="saturn" id="saturnNei" value="0" onclick="saturn = document.querySelector('#saturnNei');console.log(saturn.value)">
+      <label for="saturnNei">uenig</label>
+      <div class="questionButtonDiv">
+        <button onclick="svar()">Svar</button>
+        <button onclick="visResultat()">Vis Resultat</button>
+      </div>
+    </div>
+    
+    <!--Der Sølyediagrammet skal vises-->
+    <div class="resultDiv">
+      <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+      <p id="antallBrukereDisplay"></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

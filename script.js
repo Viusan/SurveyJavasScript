@@ -4,49 +4,46 @@ var flat = document.querySelector("#flatNei");
 var venus = document.querySelector("#venusNei");
 var saturn = document.querySelector("#saturnNei");
 
-//Variabler for hvis folk er enig med spørsmålene
-var himmelSvar = 0;
-var jordenSvar = 0;
-var venusSvar = 0;
-var saturnSvar = 0;
-var antallBrukereSomHarSvart = 0;
+//Variabel for hvor mange brukere og hvor mange svarte at de var enige i en array.
+var svarArray = [0,0,0,0,0]
 
 function svar(){//Hvis de er enige, økes variablene som brukes som statistikk
   if(himmel.value == 1){
     console.log("du er enig med at himmelen er grønn")
-    himmelSvar++;
+    svarArray[1]++
   }else{
     console.log("himmelen er ikke grønn")
   }
 
   if(flat.value == 1){
     console.log("flat")
-    jordenSvar++;
+    svarArray[2]++
   }else{
     console.log("ikke flat")
   }
 
   if(venus.value == 1){
     console.log("venus er firkant")
-    venusSvar++;
+    svarArray[3]++
   }else{
     console.log("venus er rund")
   }
 
   if(saturn.value == 1){
     console.log("saturn er rund")
-    saturnSvar++;
+    svarArray[4]++
   }else{
     console.log("saturn er flat")
   }
   //Teller hvor mange som svarer på undersøkelsen
-  antallBrukereSomHarSvart++
+  svarArray[0]++
+  console.log(svarArray)
 }
 
 function visResultat(){//Lager chart når du trykker på vis resultat knappen
   //Variabler som blir brukt til charten
   var xValues = ["Himmelen er grønn", "Jorden er flat", "Venus er firkantet", "Saturn er rund"];
-  var yValues = [(himmelSvar/antallBrukereSomHarSvart)*100, (jordenSvar/antallBrukereSomHarSvart)*100, (venusSvar/antallBrukereSomHarSvart)*100, (saturnSvar/antallBrukereSomHarSvart)*100];
+  var yValues = [(svarArray[1]/svarArray[0])*100, (svarArray[2]/svarArray[0])*100, (svarArray[3]/svarArray[0])*100, (svarArray[4]/svarArray[0])*100];
   var barColors = ["red", "green","blue","orange","brown"];
   
   new Chart("myChart", { //Koden som lager chart

@@ -5,39 +5,27 @@ var venus = document.querySelector("#venusNei");
 var saturn = document.querySelector("#saturnNei");
 
 //Variabel for hvor mange brukere og hvor mange svarte at de var enige i en array.
-var svarArray = [0,0,0,0,0]
+var svarArray = [0,0,0,0,0];
+var radioKnapper = [himmel, flat, venus, saturn];
 
 function svar(){//Hvis de er enige, økes variablene som brukes som statistikk
   if(himmel.value == 1){
-    console.log("du er enig med at himmelen er grønn")
     svarArray[1]++
-  }else{
-    console.log("himmelen er ikke grønn")
   }
 
   if(flat.value == 1){
-    console.log("flat")
     svarArray[2]++
-  }else{
-    console.log("ikke flat")
   }
 
   if(venus.value == 1){
-    console.log("venus er firkant")
     svarArray[3]++
-  }else{
-    console.log("venus er rund")
   }
 
   if(saturn.value == 1){
-    console.log("saturn er rund")
     svarArray[4]++
-  }else{
-    console.log("saturn er flat")
   }
   //Teller hvor mange som svarer på undersøkelsen
   svarArray[0]++
-  console.log(svarArray)
 }
 
 function visResultat(){//Lager chart når du trykker på vis resultat knappen
@@ -72,5 +60,5 @@ function visResultat(){//Lager chart når du trykker på vis resultat knappen
     }
   });
   //Tekst som viser hvor mange som har tatt undersøkelsen
-  document.getElementById("antallBrukereDisplay").innerHTML = "Antall bruker som har tatt spørreundersøkelsen: " + antallBrukereSomHarSvart;
+  document.getElementById("antallBrukereDisplay").innerHTML = "Antall bruker som har tatt spørreundersøkelsen: " + svarArray[0];
 }
